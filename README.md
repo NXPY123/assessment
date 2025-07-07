@@ -126,7 +126,6 @@ docker run --name railway-db \
 
 **3.1 Make and Apply Migrations:**
 
-Bash
 
 ```
 python manage.py makemigrations bookings
@@ -135,7 +134,7 @@ python manage.py migrate
 
 **3.2 Create a Superuser (Admin):**
 
-Bash
+
 
 ```
 python manage.py createsuperuser
@@ -146,7 +145,7 @@ Follow the prompts to create an admin user. Set their role to 'admin' when promp
 
 ### 4. Run the Development Server
 
-Bash
+
 
 ```
 python manage.py runserver
@@ -158,7 +157,7 @@ Your Django application should now be running on `http://127.0.0.1:8000/`.
 
 #### 5.1 Register User (User Role)
 
-Bash
+
 
 ```
 curl -X POST -H "Content-Type: application/json" -d '{"username": "testuser", "password": "testpassword", "role": "user"}' http://127.0.0.1:8000/register/
@@ -168,7 +167,7 @@ You will get a token in the response.
 
 #### 5.2 Login User
 
-Bash
+
 
 ```
 curl -X POST -H "Content-Type: application/json" -d '{"username": "testuser", "password": "testpassword"}' http://127.0.0.1:8000/login/
@@ -180,7 +179,7 @@ This will also return a token. Store this token for authenticated requests.
 
 First, create an admin user using `createsuperuser` and log in to get their token.
 
-Bash
+
 
 ```
 # Assuming you have an admin token
@@ -191,7 +190,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Token $ADMIN
 
 #### 5.4 Add Train (Admin Only)
 
-Bash
+
 
 ```
 ADMIN_TOKEN="your_admin_token_here"
@@ -200,7 +199,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Token $ADMIN
 
 #### 5.5 Add Trip (Admin Only)
 
-Bash
+
 
 ```
 ADMIN_TOKEN="your_admin_token_here"
@@ -209,7 +208,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Token $ADMIN
 
 #### 5.6 Get Availability (Authenticated User/Admin)
 
-Bash
+
 
 ```
 USER_TOKEN="your_user_token_here" # Or ADMIN_TOKEN
@@ -220,7 +219,7 @@ curl -X GET -H "Authorization: Token $USER_TOKEN" "http://127.0.0.1:8000/availab
 
 You need the `trip_id` from the availability response.
 
-Bash
+
 
 ```
 USER_TOKEN="your_user_token_here"
@@ -230,7 +229,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Token $USER_
 
 #### 5.8 Get My Bookings (Authenticated User)
 
-Bash
+
 
 ```
 USER_TOKEN="your_user_token_here"
@@ -239,7 +238,7 @@ curl -X GET -H "Authorization: Token $USER_TOKEN" http://127.0.0.1:8000/my-booki
 
 #### 5.9 Get My Bookings for a Specific Trip (Authenticated User)
 
-Bash
+
 
 ```
 USER_TOKEN="your_user_token_here"
