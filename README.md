@@ -6,8 +6,6 @@ This guide will walk you through setting up the Django train ticket booking appl
 
 **1.1 Create Django Project and App:**
 
-Bash
-
 ```
 django-admin startproject train_ticket_booking
 cd train_ticket_booking
@@ -15,8 +13,6 @@ python manage.py startapp bookings
 ```
 
 **1.2 Install Dependencies:**
-
-Bash
 
 ```
 pip install djangorestframework django-filter psycopg2-binary
@@ -28,7 +24,6 @@ Open `train_ticket_booking/settings.py` and make the following changes:
 
 - **Add `bookings` and `rest_framework` to `INSTALLED_APPS`:**
     
-    Python
     
     ```
     INSTALLED_APPS = [
@@ -41,7 +36,6 @@ Open `train_ticket_booking/settings.py` and make the following changes:
     
 - **Configure PostgreSQL Database:**
     
-    Python
     
     ```
     DATABASES = {
@@ -60,7 +54,6 @@ Open `train_ticket_booking/settings.py` and make the following changes:
     
 - **Set `AUTH_USER_MODEL`:**
     
-    Python
     
     ```
     AUTH_USER_MODEL = 'bookings.CustomUser'
@@ -68,7 +61,6 @@ Open `train_ticket_booking/settings.py` and make the following changes:
     
 - **Configure `REST_FRAMEWORK`:**
     
-    Python
     
     ```
     REST_FRAMEWORK = {
@@ -84,7 +76,6 @@ Open `train_ticket_booking/settings.py` and make the following changes:
     
 - **Add `AdminApiKeyMiddleware` (Optional, based on the prompt's suggestion):**
     
-    Python
     
     ```
     MIDDLEWARE = [
@@ -95,7 +86,6 @@ Open `train_ticket_booking/settings.py` and make the following changes:
     
 - **Set `ADMIN_API_KEY`:**
     
-    Python
     
     ```
     ADMIN_API_KEY = 'your_super_secret_admin_api_key' # **CHANGE THIS IN PRODUCTION**
@@ -105,7 +95,6 @@ Open `train_ticket_booking/settings.py` and make the following changes:
     
 - **Set `TIME_ZONE`:**
     
-    Python
     
     ```
     TIME_ZONE = 'Asia/Kolkata' # Or your desired timezone
